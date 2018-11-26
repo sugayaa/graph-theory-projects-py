@@ -185,4 +185,4 @@ for i in range(100):
 
 print(wP)
 print("soma wP:", sum(wP))
-print("max wP:", max(wP))
+#print("max wP:", max(wP))
