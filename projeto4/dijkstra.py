@@ -108,14 +108,23 @@ def montaGrafosAgrupamento(dist, pred, sources):
         Gs[i].add_nodes_from(range(TAM))
 
     for i in range(len(sources)):
+        isConex = [False] * TAM
+
         q.put(sources[i])
 
         while not q.empty():
             curr_node = q.get()
+            isConex[curr_node] = True
+
             for j in range(len(pred)):
                 if pred[j] == curr_node:
                     Gs[i].add_edge(curr_node, j)
                     q.put(j)
+
+        for node in range(TAM):
+            if not isConex[node]:
+                Gs[i].remove_node(node)
+
     return Gs
 
 def monteGrafosAgrupamento(dist, pred, sources):
@@ -172,20 +181,35 @@ g3s = montaGrafosAgrupamento(d3s, pd3s, random3)
 g2 = monteGrafosAgrupamento(d2s, pd2s, random2)
 
 options = [
-        {'node_color':'red','node_size': 100, 'width': 1, 'with_labels':True, 'font_size': 6},
-        {'node_color':'purple','node_size': 100, 'width': 3},
-        {'node_color':'black','node_size': 100, 'width': 3}
+        {'node_color':'red','node_size': 100, 'width': 1, 'with_labels':True, 'font_size': 10},
+        {'node_color':'purple','node_size': 100, 'width': 1, 'with_labels':True, 'font_size': 10},
+        {'node_color':'black','node_size': 100, 'width': 1, 'with_labels':True, 'font_size': 10},
         ]
-'''
-for g in range(len(g2s)):
-    nx.draw(g2s[g],**options[g])
 
+for g in range(len(g2s)):
+    g2s[g] = nx.relabel_nodes(g2s[g], nome_vertices)
+for g in range(len(g3s)):
+    g3s[g] = nx.relabel_nodes(g3s[g], nome_vertices)
+'''
+plt.subplot(121)
+nx.draw(g2s[0],**options[0])
+plt.subplot(122)
+nx.draw(g2s[1],**options[1])
+plt.show()
+'''
+plt.subplot(211)
+nx.draw(g3s[0],**options[0])
+plt.subplot(212)
+nx.draw(g3s[1],**options[1])
+plt.subplot(221)
+nx.draw(g3s[2],**options[2])
+plt.show()
+'''
 plt.subplot(121)
 nx.draw(g2s[0], **options[0])
 plt.subplot(122)
 nx.draw(g2s[1], **options[1])
-plt.subplot(111)
-'''
+
 g2 = nx.relabel_nodes(g2, nome_vertices)
 nx.draw(g2, **options[0])
-plt.show()
+'''
