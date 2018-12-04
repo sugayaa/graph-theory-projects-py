@@ -1,32 +1,32 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import networkx as nx
-import math as m
+import math
 import heapq as hpq
 
-def primMST(G, source):
+def primMST(source):
     pq = []
-    chave = [m.inf] * len(G)
+    chave = [math.inf] * len(G)
     pred = [-1] * len(G)
     inMST = []
 
     chave[source] = 0
     hpq.heappush(pq, (0, source))
 
-    while not pq.empty():
-        u = hpq.heappop(pq)
+    while len(pq) != 0:
+        u = hpq.heappop(pq)[1]
         inMST.append(u)
 
         for neighbors in G.adj[u]:
             v = neighbors
             w = G.adj[u][v]['weight']
 
-            if not in inMST and chave[v] > w:
+            if v not in inMST and chave[v] > w:
                 chave[v] = w
                 hpq.heappush(pq, (chave[v], v))
                 pred[v] = u
 
-    treeWeight = sum(chave[v] for v in inMST)
+    return sum(chave)
 
 
 m = np.loadtxt('ha30_dist.txt')
@@ -38,8 +38,10 @@ with open ('ha30_name.txt') as arq:
 cidades = []
 vertices = G.nodes()
 nome_vertices = {}
-
+'''
 for v in vertices:
     nome_vertices[v] = cidades[v]
-
+'''
 #G = nx.relabel_nodes(G, nome_vertices)
+
+print(primMST(0))
