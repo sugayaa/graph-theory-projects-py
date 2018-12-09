@@ -6,13 +6,13 @@ O trabalho consiste na resolução de 5 de 10 problemas propostos pelo docente.
 A resolução dos problemas deveria ser realizado utilizando-se da estrutura matemática grafo.
 
 ## Problemas solucionados:
-# Snakes and Ladders:
+### Snakes and Ladders:
 
-# Árvore Geradora Mínima:
+### Árvore Geradora Mínima:
 
-# Busca em Largura e profundidade:
+### Busca em Largura e profundidade:
 
-# Caminhos mínimos e agrupamento de dados:
+### Caminhos mínimos e agrupamento de dados:
 
 
 ## Tecnologias utilizadas:
