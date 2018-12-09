@@ -190,21 +190,22 @@ for g in range(len(g2s)):
     g2s[g] = nx.relabel_nodes(g2s[g], nome_vertices)
 for g in range(len(g3s)):
     g3s[g] = nx.relabel_nodes(g3s[g], nome_vertices)
-'''
+
 plt.subplot(121)
 nx.draw(g2s[0],**options[0])
 plt.subplot(122)
 nx.draw(g2s[1],**options[1])
 plt.show()
 '''
-plt.subplot(211)
+plt.subplot(121)
 nx.draw(g3s[0],**options[0])
-plt.subplot(212)
+plt.subplot(122)
 nx.draw(g3s[1],**options[1])
+plt.show()
 plt.subplot(221)
 nx.draw(g3s[2],**options[2])
 plt.show()
-'''
+
 plt.subplot(121)
 nx.draw(g2s[0], **options[0])
 plt.subplot(122)

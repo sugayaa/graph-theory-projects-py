@@ -4,6 +4,12 @@ def imprimir(matriz):
         print(matriz[i],end='')
         print("soma:",sum(matriz[i]))
 
+def imprimirLista(l):
+    print('[')
+    for i in range(len(l)):
+        print('casa ', i + 1,', probabilidade :', l[i] * 100,'%,', sep='')
+    print(']')
+
 def addA(origem, destino):
     matrizP[origem-1][destino-1] += 0.5
 
@@ -159,7 +165,8 @@ for i in range(100):
     w = multiplicaVetorMatriz(w, matrizP)
 
 #distribuição estacionaria com nº de interações igual a 100
-print(w)
+#print(w)
+imprimirLista(w)
 print("soma w:", sum(w))
 
 #PAGE RANK
@@ -183,6 +190,6 @@ wP[0] = 1
 for i in range(100):
     wP = multiplicaVetorMatriz(wP, matrizP_)
 
-print(wP)
+imprimirLista(wP)
 print("soma wP:", sum(wP))
 print("max wP:", max(wP))
