@@ -1,7 +1,7 @@
 # Projetos Teoria dos Grafos
 Trabalho de Conclusão da matéria Teoria dos Grafos, cursado na UFSCar em 2018/2.
 
-##Resumo
+## Resumo
 O trabalho consiste na resolução de 5 de 10 problemas propostos pelo docente. 
 A resolução dos problemas deveria ser realizado utilizando-se da estrutura matemática grafo.
 
